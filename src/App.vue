@@ -1,9 +1,9 @@
 <template>
-<HeaderComponent/>
-<main>
-<ProductList/>
-</main>
-<FooterComponent/>
+  <HeaderComponent/>
+  <main>
+    <ProductList/>
+  </main>
+  <FooterComponent/>
 </template>
 
 <script>
