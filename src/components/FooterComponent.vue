@@ -2,29 +2,27 @@
     <footer>
         <div class="cols container">
             <a href="#" class="logo">
-                <img src="../assets/img/la-molisana-logo.png" alt="logo">
+                <img src="../assets/img/la-molisana-logo.png" alt="La Molisana">
             </a>
-
-                <div class="footer-links">
-                <h4></h4>
-                <nav>
-                <ul>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                </ul>
-                </nav>
-                </div>
-
+            <FooterMenu v-for="(menu, index) in navBars" :key="index" :item="menu"/>
         </div>
+
     </footer>
 </template>
 
 <script>
+import {menu} from '../data/data';
+import FooterMenu from './FooterMenu.vue';
     export default {
-        name: 'FooterComponent'
+        name: 'FooterComponent',
+        components:{
+            FooterMenu
+        },
+        data(){
+            return {
+                navBars : menu
+            }
+        }
     }
 </script>
 
@@ -32,24 +30,35 @@
 @use '../assets/styles/partials/mixins' as *;
 @use '../assets/styles/partials/variables' as *;
 
-footer{
+footer {
     padding-top: 3rem;
-    .cols{
+    background-image: url('../assets/img/footer-montagne-bottom.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding-bottom: 1rem;
+    .cols {
         display: flex;
-        margin-bottom: 3rem;
-        .footer-links{
-            flex-basis: calc(100%/3);
+        .logo,
+        .footer-links {
+            flex-basis: calc(100% / 3);
+            padding: 0 1rem;
         }
-        h4{
+        h4 {
+            text-transform: uppercase;
+            font-size: 1.25em;
+            font-weight: 600;
+            margin-bottom: 1rem;
             color: $bluetext;
         }
-        ul{
+        ul {
             list-style: none;
-            li a{
+            li a {
                 display: inline-block;
-
-                &:hover{
-                    color: $primary;
+                margin-bottom: 0.25rem;
+                text-decoration: none;
+                font-size: 0.875em;
+                &:hover {
+                    color: $bluetext;
                 }
             }
         }

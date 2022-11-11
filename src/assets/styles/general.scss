@@ -1,22 +1,38 @@
+@use './partials/mixins' as *;
+@use './partials/variables' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+// my-scss-docs-start theme-color-variables
+// $primary:       $blue !default;
+// $secondary:     $gray-600 !default;
+// $success:       $green !default;
+// $info:          $cyan !default;
+// $warning:       $yellow !default;
+// $danger:        $red !default;
+// $light:         $gray-100 !default;
+// $dark:          $gray-900 !default;
 @import 'bootstrap/scss/bootstrap';
 
-// *{
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
-// body{
-//     font-family: 'Roboto', sans-serif;
-// }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
 
-// img{
-//     max-width: 100%;
-// }
+img{
+    max-width: 100%;
+}
 
-// .container{
-//     max-width: 1170px;
-//     margin: 0 auto;
-//     padding: 1rem;
-// }
+a{
+    color: $blacktext;
+}
+
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 1rem;
+}

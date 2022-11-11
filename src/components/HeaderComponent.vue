@@ -5,7 +5,7 @@
         </a>
         <nav>
             <ul>
-                <li v-for="(link, index) in links" :key="index">
+                <li v-for="(link, index) in navbar" :key="index">
                     <a :href="link.url" :class="{'active': link.current}">{{link.text}}</a>
                 </li>
             </ul>
@@ -14,32 +14,17 @@
 </template>
 
 <script>
+import { links } from '../data/data'
     export default {
         name: 'HeaderComponent',
         data(){
             return{
-                links:[
-                    {
-                        text: "Home",
-                        url: "#",
-                        current: false,
-                    },
-                    {
-                        text: "Prodotti",
-                        url: "#",
-                        current: true,
-                    },
-                    {
-                        text: "Chi Siamo",
-                        url: "#",
-                        current: false,
-                    },
-                    {
-                        text: "Contatti",
-                        url: "#",
-                        current: false,
-                    },
-                ]
+                navbar: links
+            }
+        },
+        methods :{
+            getImagePath: function(imgPath){
+                return new URL (imgPath, import.meta.url).href;
             }
         }
     }
@@ -58,17 +43,16 @@ header{
             list-style: none;
             margin:  2.5rem 1rem 4rem;
             @include dflex;
-            li{
-                a{
-                    display: inline-block;
-                    padding: 1rem;
-                    text-decoration: none;
-                    font-weight: 600;
-                    color: $blacktext;
+            li a{
+                display: inline-block;
+                padding: 1rem;
+                text-decoration: none;
+                font-weight: 600;
+                color: $blacktext;
 
-                    &.active, &:hover{
-                        background-color: $ligthblue;
-                    }
+                &.active, 
+                &:hover{
+                background-color: $lightblue;
                 }
             }
         }
